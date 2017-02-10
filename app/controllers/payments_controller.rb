@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   def index
-    @payments = Payment.all
+    @payments = Project.find(params[:project_id]).payments
   end
 
   def edit; end
