@@ -3,4 +3,5 @@ class Project < ApplicationRecord
   has_many :user_project_payments
   has_many :users, through: :user_project_payments
   has_many :payments, through: :user_project_payments
+  has_one :location
 end

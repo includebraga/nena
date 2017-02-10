@@ -4,5 +4,6 @@ class User < ApplicationRecord
   has_many :user_project_payments
   has_many :projects, through: :user_project_payments
   has_many :payments, through: :user_project_payments
+  has_one :location
   validates :email, :name, presence: true
 end
