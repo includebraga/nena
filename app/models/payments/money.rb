@@ -1,0 +1,2 @@
+class Money < Payment
+end

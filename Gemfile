@@ -1,24 +1,27 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7'
-gem 'sqlite3'
+gem 'rails', '~> 5.0.1'
+gem 'puma', '~> 3.0'
+gem "pry-rails"
 gem 'sass-rails', '~> 5.0'
 gem "slim-rails"
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-
+gem 'sqlite3'
 gem 'jquery-rails'
 
 group :development, :test do
   gem "pry-byebug"
-  gem 'byebug'
+  gem 'byebug', platform: :mri
 end
 
 group :development do
   gem "better_errors"
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
