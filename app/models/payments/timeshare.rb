@@ -1,0 +1,2 @@
+class Timeshare < Payment
+end
