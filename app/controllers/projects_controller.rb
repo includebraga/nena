@@ -19,6 +19,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def all_payments
+    @payments = Project.find(params[:id]).payments
+  end
+
   def update
     if @project.update_attributes(project_params)
       redirect_to @project
