@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem "slim-rails"
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'hashie', '~> 3.4.0'
 gem 'omniauth-facebook'
 gem 'omniauth'
 
