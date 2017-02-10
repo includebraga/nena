@@ -12,10 +12,16 @@ gem 'sass-rails', '~> 5.0'
 gem "slim-rails"
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'omniauth-facebook'
+gem 'omniauth'
 
 group :development, :test do
   gem "pry-byebug"
   gem 'byebug', platform: :mri
+end
+
+group :test do
+  gem 'rspec-rails'
 end
 
 group :development do
