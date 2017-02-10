@@ -59,10 +59,8 @@ ActiveRecord::Schema.define(version: 20170210205636) do
   create_table "user_project_payments", force: :cascade do |t|
     t.integer  "projects_id"
     t.integer  "users_id"
-    t.integer  "payments_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["payments_id"], name: "index_user_project_payments_on_payments_id"
     t.index ["projects_id"], name: "index_user_project_payments_on_projects_id"
     t.index ["users_id"], name: "index_user_project_payments_on_users_id"
   end
