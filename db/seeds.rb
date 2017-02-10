@@ -5,6 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Dir[File.dirname(__FILE__) + "/seeds_files/*"].each { |file| require_relative file }
-
-locations = Seed::locations
