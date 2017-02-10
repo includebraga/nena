@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210194435) do
+ActiveRecord::Schema.define(version: 20170210205636) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "country"
+    t.string   "city"
+    t.integer  "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "organization_users", force: :cascade do |t|
     t.boolean  "admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "organizations_id"
+    t.integer  "users_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["organizations_id"], name: "index_organization_users_on_organizations_id"
+    t.index ["users_id"], name: "index_organization_users_on_users_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -32,6 +44,25 @@ ActiveRecord::Schema.define(version: 20170210194435) do
     t.string   "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "address"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_projects_on_organization_id"
+  end
+
+  create_table "user_project_payments", force: :cascade do |t|
+    t.integer  "projects_id"
+    t.integer  "users_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["projects_id"], name: "index_user_project_payments_on_projects_id"
+    t.index ["users_id"], name: "index_user_project_payments_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
