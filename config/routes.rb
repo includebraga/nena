@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   delete 'sign_out', to: 'sessions#destroy', as: :signout
+
+  resources :organizations do
+    resources :projects
+    get :users, to: 'organization_users#index'
+  end
 end
