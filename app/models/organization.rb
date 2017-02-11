@@ -8,6 +8,6 @@ class Organization < ApplicationRecord
   validates_attachment_content_type :hero, content_type: /\Aimage\/.*\z/
 
   def admin?(user)
-    OrganizationUser.where(user_id: user.id, organization_id: id).try(:admin)
+    OrganizationUser.where(user_id: user.id, organization_id: id, admin: true).any?
   end
 end
