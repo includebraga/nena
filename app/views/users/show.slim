@@ -1,4 +1,6 @@
 .Header
+  .u-largePaddingBottom
+
   .User.Grid.five
     .Flex.row.alignCenter
       .User-profileImg style="background-image:url('#{current_user.image}')"
@@ -30,5 +32,3 @@
 .Flex.row.wrap
   - @user.projects.each do |project|
     = render partial: 'shared/grid_img', locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
-
-= link_to "Sign out", signout_path, method: :delete
