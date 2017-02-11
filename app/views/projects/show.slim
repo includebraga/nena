@@ -17,26 +17,8 @@
 
       .Flex.row.wrap.selfEnd
         .Flex.selfEnd
-          = link_to "#" do
-            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Share
-
-        .u-basePushRight
-
-        .Flex.selfEnd
-          = link_to "#" do
-            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Donate
-
-        .u-basePushRight
-
-        .Flex.selfEnd
-          = link_to "#" do
-            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Provide
-
-        .u-basePushRight
-
-        .Flex.selfEnd
-          = link_to "#" do
-            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Time
+          = link_to "#modal", rel: "modal:open" do
+            .Button.tiffanyBlue.u-shadowSmall Share
 
 .Grid
   .u-largePushBottom
@@ -60,5 +42,29 @@
 
   - else
     .Flex.row.alignStart.wrap.spaceBetween
-      - @organization.users.each do |user|
+      - @project.users.each do |user|
         = render partial: 'users/preview', locals: {user: user}
+
+.modal.u-tiny#modal
+  = form_for(current_user.payments.build) do |f|
+    = f.radio_button :type, 'money', checked: true
+    = f.label :donate
+    .u-smallPushRight
+    = f.radio_button :type, 'timeshare'
+    = f.label :time
+    .u-smallPushRight
+    = f.radio_button :type, 'other'
+    = f.label :other
+
+    .u-smallPushBottom
+
+    = f.label :quantity
+    .u-smallPushRight
+    = f.text_field :quantity
+
+    = f.hidden_field :project_id, value: @project.id
+    = f.hidden_field :user_id, value: current_user.id
+
+    .u-smallPushBottom
+
+    = f.submit 'Confirm'

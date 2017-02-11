@@ -1,41 +1,28 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:new, :update]
-  def index
-    @payments = Project.find(params[:project_id]).payments
-  end
-
-  def edit; end
-
-  def new
-    @payment = Payment.new
-  end
 
   def create
     @payment = Payment.new(payment_params)
     if @payment.save
-      redirect_to @payment
+      UserProjectPayment.create(user_id: params[:payment][:user_id], project_id: params[:payment][:project_id], payment_id: @payment.reload.id)
+      redirect_to "/organizations/#{@payment.project.organization_id}/projects/#{@payment.project.id}"
     else
       flash[:alert] = "Payment not saved"
       render "new"
     end
   end
 
-  def update
-    if @payment.update_attributes(payment_params)
-      redirect_to @payment
-    end
-  end
-
-  def destroy
-    Payment.find(params[:id]).destroy
-    flash[:success] = "Payment deleted"
-    redirect_to root_path
-  end
-
   private
 
-  def payment_params
+  def payment_base_params
     params.require(:payment).permit(:type, :quantity, :unity)
+  end
+
+  def payment_params
+    payment_base_params.merge({
+      quantity: payment_base_params[:quantity].to_f,
+      type: payment_base_params[:type].capitalize,
+    })
   end
 
   def set_payment

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :locations, only: [:show, :edit, :update]
+
+  resources :payments, only: [:create]
 end

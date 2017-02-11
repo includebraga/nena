@@ -13,3 +13,7 @@
 .u-coralReef {
   color: $color-coral-reef;
 }
+
+.u-tiny {
+  @include font($size: 'tiny');
+}
