@@ -36,6 +36,8 @@
   .Heading.huge.gimblet
     | Upcoming initiatives
 
+  .u-largePushBottom
+
 .Flex.row.wrap
   - @projects.each do |project|
     = link_to organization_project_path(project.organization, project)
