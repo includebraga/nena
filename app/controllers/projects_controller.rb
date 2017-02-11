@@ -1,10 +1,15 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:new, :update]
+  before_action :set_project, only: [:show, :new, :update]
+
   def index
     @projects = Organization.find(params[:organization_id]).projects
   end
 
-  def edit; end
+  def show
+  end
+
+  def edit
+  end
 
   def new
     @project = Project.new
@@ -35,7 +40,8 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :address)
+    params.require(:project).permit(:organization_id, :id, :name,
+      :description, :address)
   end
 
   def set_project
