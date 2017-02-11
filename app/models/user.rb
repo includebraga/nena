@@ -12,6 +12,7 @@ class User < ApplicationRecord
     user.email = "#{auth['uid']}@#{auth['provider']}.com"
     user.name = auth['info']['name']
     user.image  = auth['info']['image']
+    user.location_id = 1707
     if User.exists?(user)
       user
     else
