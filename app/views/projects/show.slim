@@ -60,5 +60,5 @@
 
   - else
     .Flex.row.alignStart.wrap.spaceBetween
-      - @organization.users.each do |user|
+      - @project.users.each do |user|
         = render partial: 'users/preview', locals: {user: user}
