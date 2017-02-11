@@ -11,8 +11,9 @@
 }
 
 .Nav-link {
-  position: relative;
+  @include font($size: 'tiny');
 
+  position: relative;
   text-decoration: none;
 }
 
@@ -48,4 +49,3 @@
 
   font-family: $font-family-serif;
 }
-
