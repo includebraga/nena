@@ -12,7 +12,7 @@
               organization_path(@project.organization)
           br
           .OverlayText.tiffanyBlue
-            = @project.location.city
+            = @project.location && @project.location.city || "Braga"
 
 .Grid
   .u-largePushBottom
@@ -29,7 +29,8 @@
 
   - if @project.users.empty?
     .Text.tiny
-      | Ainda não existem voluntários neste projeto.
+      | There are still no volunteers in this project.
+
   - else
-    - @project.users.each do |user|
-      = link_to user.name, users_path(user)
+    - @organization.users.each do |user|
+      = render partial: 'users/preview', locals: {user: user}
