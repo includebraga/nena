@@ -1,20 +1,33 @@
-.Header
-  .User.Grid.five
+.Header style="background-image: url(#{@organization.avatar.url});"
+  .User.Grid
     .Flex.row.alignCenter
       .User-profileData
         .Heading
-          .GridImg style="background-image: url(#{@organization.avatar})"
-          = @organization.name
-        .Flex.row
-          .Text.tiny.faded
-            = @organization.description
+          .GridImg
+          .OverlayText.caribbeanGreen
+            = @organization.name
+          br
+          .OverlayText.caribbeanGreen
+            | #{@organization.users.count} volunteers
 
 .Grid
-  .u-largePushBottom
 
-  .Heading.huge.gimblet
+  .u-largePushBottom
+  .Text.tiny
+    = @organization.description
+
+  .Heading.huge.u-caribbeanGreen
     | Featured initiatives
 
-.Flex.row.wrap
-  - @projects.each do |project|
-    = render partial: 'shared/grid_img', locals: {name: project.name, description: project.tagline, url: project.avatar.url}
+  .Flex.row.wrap
+    - @projects.each do |project|
+      = render partial: 'shared/grid_img',
+        locals: { name: project.name, description: project.tagline, url: project.avatar.url }
+
+  .u-largePushBottom
+  .Heading.huge.u-caribbeanGreen
+    | Volunteers
+  hr
+  - @organization.users.each do |user|
+    = link_to user.name, users_path(user)
+
