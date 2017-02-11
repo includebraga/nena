@@ -1,7 +1,8 @@
 .GridImg style="background-image: url(#{url})"
 
   .CardText
-    .CardText-title
+    div class="CardText-title OverlayText #{color_class}"
       = name
-    .CardText-content
-      = description
+    - if description
+      div class="CardText-context OverlayText #{color_class}"
+        = description

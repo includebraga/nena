@@ -22,7 +22,7 @@
   .Flex.row.wrap
     - @projects.each do |project|
       = render partial: 'shared/grid_img',
-        locals: { name: project.name, description: project.tagline, url: project.avatar.url }
+        locals: { name: project.name, description: project.tagline, url: project.avatar.url, color_class: 'caribbeanGreen' }
 
   .u-largePushBottom
   .Heading.huge.u-caribbeanGreen
