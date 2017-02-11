@@ -1,15 +1,24 @@
-.container
-  h1 style=("text-align: left")  New Organization
+.Grid
+  .u-hugePaddingBottom
+  h1 New Organization
+  hr
   .row
-    .col-lg-8
-      = form_for @organization, url: organizations_path, html: { multipart: true } do |f|
-        .form-group
-          = f.file_field :avatar
-          = f.label :name 
-          br
-          = f.text_field :name, class: "form-control",  placeholder: "Enter new name"
-          br
-          = f.label :description
-          = f.text_field :description, class: "form-control",  placeholder: "Enter new description"
-          br
-          = f.submit "ok", class: "btn btn-primary"
+    = form_for @organization, url: organizations_path, html: { multipart: true } do |f|
+      .form-group
+        = f.label :avatar
+        br
+        = f.file_field :avatar
+        br
+        = f.label :hero
+        br
+        = f.file_field :hero
+        br
+        = f.label :name
+        br
+        = f.text_field :name, class: "form-control",  placeholder: "Project Name"
+        br
+        = f.label :description
+        br
+        = f.text_area :description, class: "form-control",  placeholder: "Project Description"
+        br
+        = f.submit "Create New Organization", class: "btn btn-primary"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211105912) do
+ActiveRecord::Schema.define(version: 20170211132146) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "city"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20170211105912) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -58,12 +62,12 @@ ActiveRecord::Schema.define(version: 20170211105912) do
     t.integer  "organization_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.datetime "initial_date"
-    t.datetime "final_date"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "initial_date"
+    t.datetime "final_date"
     t.integer  "location_id"
     t.string   "tagline"
     t.index ["location_id"], name: "index_projects_on_location_id"
@@ -73,10 +77,8 @@ ActiveRecord::Schema.define(version: 20170211105912) do
   create_table "user_project_payments", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.integer  "payments_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["payments_id"], name: "index_user_project_payments_on_payments_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_user_project_payments_on_project_id"
     t.index ["user_id"], name: "index_user_project_payments_on_user_id"
   end
