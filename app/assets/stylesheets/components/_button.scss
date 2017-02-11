@@ -40,3 +40,13 @@ $button-padding: 12px 36px;
     cursor: pointer;
   }
 }
+
+.Button.tiffanyBlue {
+  background-color: $color-tiffany-blue;
+
+  &:hover {
+    background-color: darken($color-tiffany-blue, 3);
+    cursor: pointer;
+  }
+}
+

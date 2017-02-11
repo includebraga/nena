@@ -1,6 +1,6 @@
 .Header style="background-image: url(#{@project.hero.url});"
   .User.Grid
-    .Flex.row.alignCenter.u-tiffanyBlue
+    .Flex.row.alignCenter.u-tiffanyBlue.spaceBetween
       .User-profileData
         .Heading
           .GridImg
@@ -13,6 +13,10 @@
           br
           .OverlayText.tiffanyBlue
             = @project.location && @project.location.city || "Braga"
+
+      .Flex.selfEnd
+        = link_to "#" do
+          .Button.tiffanyBlue.u-shadowSmall Pledge
 
 .Grid
   .u-largePushBottom
