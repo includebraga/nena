@@ -1,9 +1,23 @@
-h1 Hello, world!
+.Flex.column.alignCenter
+  .u-hugePushBottom
+  .u-hugePushBottom
 
-div
-  - if current_user
-    p Signed in as #{current_user.name}
+  .Heading.landing.dark
+    | Nena
 
-    = link_to "Sign out", signout_path, method: :delete
-  - else
-    = link_to "Sign in with Facebook", "/auth/facebook"
+  .u-largePushBottom
+
+  .Grid.two
+    .Text.centered
+      | Nena helps organizations reach their goals TODO: MULTILINE TEXT HERE
+
+  .u-largePushBottom
+
+  div
+    - if current_user
+      p Signed in as #{current_user.name}
+
+      = link_to "Sign out", signout_path, method: :delete
+    - else
+      = link_to "/auth/facebook" do
+        .Button.u-shadowSmall Sign in

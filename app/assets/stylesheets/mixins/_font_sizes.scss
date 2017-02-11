@@ -12,6 +12,14 @@ $default-font-sizes: (
     font-size: 32px,
     line-height: 42px,
   ),
+  huge: (
+    font-size: 48px,
+    line-height: 58px,
+  ),
+  landing: (
+    font-size: 120px,
+    line-height: 130px,
+  )
 );
 // scss-lint:enable TrailingSemicolon
 

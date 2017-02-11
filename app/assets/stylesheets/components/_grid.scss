@@ -1,0 +1,25 @@
+$grid-width: 1236px;
+$grid-two-width: 336px;
+$grid-five-width: 876px;
+
+.Grid {
+  display: block;
+
+  width: 100%;
+  max-width: $grid-width;
+
+  margin: auto;
+}
+
+.Grid.unpadded {
+  margin: 0;
+}
+
+.Grid.two {
+  max-width: $grid-two-width;
+}
+
+.Grid.five {
+  max-width: $grid-five-width;
+}
+

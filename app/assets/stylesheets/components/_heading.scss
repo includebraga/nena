@@ -1,0 +1,42 @@
+.Heading {
+  @include font($size: 'large');
+
+  font-family: $font-family-serif;
+  font-weight: normal;
+}
+
+.Heading.dark {
+  color: $color-gunmetal;
+}
+
+.Heading.secondary {
+  @include font;
+}
+
+.Heading.small {
+  @include font($size: 'base');
+}
+
+.Heading.huge {
+  @include font($size: 'huge');
+}
+
+.Heading.landing {
+  @include font($size: 'landing');
+}
+
+.Heading.bold {
+  font-weight: bold;
+}
+
+.Heading.faded {
+  opacity: 0.7;
+}
+
+.Heading.centered {
+  text-align: center;
+}
+
+.Heading.sans {
+  font-family: $font-family;
+}

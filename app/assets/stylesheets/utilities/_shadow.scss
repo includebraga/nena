@@ -1,0 +1,15 @@
+$shadow-blur: 20px;
+$shadow-length: 16px;
+$shadow-color-blue: rgba(68, 102, 145, 0.3);
+$shadow-color-dark: rgba(0, 0, 0, 0.2);
+
+$shadow-blur-small: 18px;
+$shadow-length-small: 10px;
+
+.u-shadow {
+  filter: drop-shadow(0 $shadow-length $shadow-blur $shadow-color-blue);
+}
+
+.u-shadowSmall {
+  filter: drop-shadow(0 $shadow-length-small $shadow-blur-small $shadow-color-dark);
+}
