@@ -1,6 +1,37 @@
-.SearchBar {
+.SearchBar-indicator {
+  @include font($size: 'small');
+
+  background-color: $color-gimblet;
+  color: $color-limed-spruce;
+  text-align: center;
+
+  &:hover {
+    background-color: $color-limed-spruce;
+    color: $color-gimblet;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+}
+
+.SearchBar-indicator.expanded {
+  background-color: $color-limed-spruce;
+  color: $color-gimblet;
+
+  &:hover {
+    background-color: $color-gimblet;
+    color: $color-limed-spruce;
+  }
+}
+
+.SearchBar-container {
+  display: none;
+  background-color: $color-limed-spruce;
+  padding: 6px;
+
   input[type="text"] {
     @include font($size: 'small');
+    background-color: $color-limed-spruce;
+    color: $color-buttery-white;
     width: 100%;
     text-align: center;
     border: none;

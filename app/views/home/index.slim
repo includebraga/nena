@@ -25,7 +25,9 @@
             | 2 material donations
 
 .SearchBar
-  = text_field_tag "location", nil, placeholder: "Find a nearby city"
+  .SearchBar-indicator ▼
+  .SearchBar-container
+    = text_field_tag "location", nil, placeholder: "Find a nearby city"
 
 .Grid
   .u-largePushBottom
