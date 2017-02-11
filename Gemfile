@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'hashie', '~> 3.4.0'
 gem 'omniauth-facebook'
 gem 'omniauth'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem "pry-byebug"
