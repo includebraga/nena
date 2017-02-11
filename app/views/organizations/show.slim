@@ -1,6 +1,6 @@
 .Header style="background-image: url(#{@organization.avatar.url});"
   .User.Grid
-    .Flex.row.alignCenter
+    .Flex.row.alignCenter.spaceBetween
       .User-profileData
         .Heading
           .GridImg
@@ -10,9 +10,14 @@
           .OverlayText.caribbeanGreen
             | #{@organization.users.count} volunteers
 
-.Grid
+      - if @organization.admin? current_user
+        .Flex.selfEnd
+          = link_to new_organization_project_path(@organization) do
+            .Button.caribbeanGreen.u-shadowSmall New initiative
 
+.Grid
   .u-largePushBottom
+
   .Text.tiny
     = @organization.description
 
