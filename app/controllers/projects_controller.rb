@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update]
-  before_action :set_organization, only: [:index, :new, :create]
+  before_action :set_organization, only: [:index, :new, :create, :update]
 
   def index
     @projects = Organization.find(params[:organization_id]).projects
@@ -15,11 +15,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project_params[:location] = Location.find_by(city: project_params[:location])
+    project_params[:location_id] = Location.find_by(city: project_params[:location_name]).id
     @project = @organization.projects.create(project_params)
 
     if @project.save
-      redirect_to organization_projects_path(@organization)
+      redirect_to organization_project_path(@organization, @project)
     else
       flash.now[:danger] = "Failed create Project"
       render "new"
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update_attributes(project_params)
-      redirect_to @project
+      redirect_to organization_project_path(@organization, @project)
     end
   end
 

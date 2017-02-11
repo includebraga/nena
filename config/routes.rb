@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy', as: :signout
 
   resources :organizations do
-    resources :projects
+    resources :projects, except: [:index]
     get :users, to: 'organization_users#index'
   end
 
