@@ -11,19 +11,19 @@
           = link_to current_user.name, user_path(current_user)
         .Flex.row
           .Text.tiny.faded
-            | 15 projects
+            | #{@user.projects.count} projects
             br
-            | €200
+            | €#{@user.payments.where(type: 'Money').map { |p| p.quantity}.sum }
             br
-            | 15 hours
+            | #{@user.payments.where(type: 'Timeshare').map { |p| p.quantity}.sum } hours
 
           .u-basePushRight
 
           .Text.tiny.faded
             br
-            | 12 shares
+            | #{@user.payments.where(type: 'Share').map { |p| p.quantity}.sum } shares
             br
-            | 2 material donations
+            | #{@user.payments.where(type: 'Other').map { |p| p.quantity}.sum } material donations
 
 / .SearchBar
 /   .SearchBar-indicator ▼
