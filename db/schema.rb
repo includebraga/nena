@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211132146) do
+ActiveRecord::Schema.define(version: 20170211133629) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "city"
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 20170211132146) do
     t.datetime "final_date"
     t.integer  "location_id"
     t.string   "tagline"
+    t.string   "hero_file_name"
+    t.string   "hero_content_type"
+    t.integer  "hero_file_size"
+    t.datetime "hero_updated_at"
     t.index ["location_id"], name: "index_projects_on_location_id"
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end

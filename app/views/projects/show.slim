@@ -1,4 +1,4 @@
-.Header style="background-image: url(#{@project.avatar.url});"
+.Header style="background-image: url(#{@project.hero.url});"
   .User.Grid
     .Flex.row.alignCenter.u-tiffanyBlue
       .User-profileData
@@ -24,5 +24,10 @@
 
   .Heading.huge.u-tiffanyBlue
     | Volunteers
+    hr
+  - if @project.users.empty?
+    .Text.tiny
+      | Ainda não existem voluntários neste projeto.
+  - else
     - @project.users.each do |user|
       = link_to user.name, users_path(user)

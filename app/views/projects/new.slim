@@ -1,35 +1,37 @@
-.container
+.Grid
   .u-hugePaddingBottom
   h1 New Project
   hr
   .row
-    .col-lg-8
-      = form_for [:organization, @project], url: organization_projects_path, html: { multipart: true } do |f|
-        .form-group
-          = f.label :avatar
-          br
-          = f.file_field :avatar
-          br
-          = f.label :name
-          br
-          = f.text_field :name, class: "form-control",  placeholder: "Enter Name"
-          br
-          = f.label :description
-          br
-          = f.text_field :description, class: "form-control",  placeholder: "Enter Description"
-          br
-          = f.label :initial_date
-          br
-          = f.text_field :initial_date, class: "form-control",  placeholder: "Enter Initial Date"
-          br
-          = f.label :final_date
-          br
-          = f.text_field :final_date, class: "form-control",  placeholder: "Enter Final Date"
-          br
-          = f.label :location_name
-          br
-          = f.text_field :location_name,
-            data: { autocomplete_source: Location.order(:city).map(&:city) }
-
-          br
-          = f.submit "Create Project", class: "btn btn-primary"
+    = form_for [@organization, @project], url: organization_projects_path, html: { multipart: true } do |f|
+      .form-group
+        = f.label :avatar
+        br
+        = f.file_field :avatar
+        br
+        = f.label :hero
+        br
+        = f.file_field :hero
+        br
+        = f.label :name
+        br
+        = f.text_field :name, class: "form-control",  placeholder: "Enter Name"
+        br
+        = f.label :description
+        br
+        = f.text_field :description, class: "form-control",  placeholder: "Enter Description"
+        br
+        = f.label :initial_date
+        br
+        = f.text_field :initial_date, class: "form-control",  placeholder: "Enter Initial Date"
+        br
+        = f.label :final_date
+        br
+        = f.text_field :final_date, class: "form-control",  placeholder: "Enter Final Date"
+        br
+        = f.label :location_name
+        br
+        = f.text_field :location_name,
+          data: { autocomplete_source: Location.order(:city).map(&:city) }
+        br
+        = f.submit "Create Project", class: "btn btn-primary"

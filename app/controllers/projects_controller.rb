@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:id, :name, :description, :initial_date, :final_date, :organization_id, :avatar, :location_name, :location, :location_id)
+    params.require(:project).permit(:id, :name, :description, :initial_date, :final_date, :organization_id, :avatar, :location_name, :location, :location_id, :hero)
   end
 
   def set_organization
