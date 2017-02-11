@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Nena
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    .Flex.column.alignCenter
+      .u-hugePushBottom
+      .u-hugePushBottom
+
+      .Heading.landing.dark
+        | Nena
+
+      .u-largePushBottom
+
+      .Grid.two
+        .Text.centered
+          | Nena helps organizations reach their goals TODO: MULTILINE TEXT HERE
+
+      .u-largePushBottom
+
+      div
+        = link_to "/auth/facebook" do
+          .Button.u-shadowSmall Sign in
