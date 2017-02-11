@@ -7,12 +7,12 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
+  body.UnauthenticatedBody
     .Flex.column.alignCenter
       .u-hugePushBottom
       .u-hugePushBottom
 
-      .Heading.landing.dark
+      .Heading.landing
         | Nena
 
       .u-largePushBottom
