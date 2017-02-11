@@ -24,6 +24,9 @@
   .Text.tiny
     = @project.description
 
+  .Text.tiny
+    | #{@project.initial_date.strftime("%d/%m/%Y %H:%M")} - #{@project.final_date.strftime("%d/%m/%Y %H:%M")}
+
   .u-largePushBottom
 
   .Heading.huge.u-tiffanyBlue
