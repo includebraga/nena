@@ -14,9 +14,29 @@
           .OverlayText.tiffanyBlue
             = @project.location && @project.location.city || "Braga"
 
-      .Flex.selfEnd
-        = link_to "#" do
-          .Button.tiffanyBlue.u-shadowSmall Pledge
+
+      .Flex.row.wrap.selfEnd
+        .Flex.selfEnd
+          = link_to "#" do
+            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Share
+
+        .u-basePushRight
+
+        .Flex.selfEnd
+          = link_to "#" do
+            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Donate
+
+        .u-basePushRight
+
+        .Flex.selfEnd
+          = link_to "#" do
+            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Provide
+
+        .u-basePushRight
+
+        .Flex.selfEnd
+          = link_to "#" do
+            .PledgeButton.Button.tiffanyBlue.u-shadowSmall Time
 
 .Grid
   .u-largePushBottom
