@@ -28,6 +28,30 @@
 .Grid
   .u-largePushBottom
 
+  .Heading.huge.u-coralReef
+    | Organizations
+
+  .u-largePushBottom
+
   .Flex.row.wrap
-    - @user.projects.each do |project|
-      = render partial: 'shared/grid_img', locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
+    - if @user.organizations.empty?
+      | This user is not part of any organizations yet.
+    - else
+      - @user.organizations.each do |organization|
+        = link_to organization_path(organization)
+          = image_tag organization.avatar.url, class: 'User-profileImg'
+
+  .u-largePushBottom
+
+  .Heading.huge.u-coralReef
+    | Initiatives
+
+  .u-largePushBottom
+
+  .Flex.row.wrap
+    - if @user.projects.empty?
+      | This user has not contributed to any initiatives yet.
+    - else
+      - @user.projects.each do |project|
+        = render partial: 'shared/grid_img',
+          locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
