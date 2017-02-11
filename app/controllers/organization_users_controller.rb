@@ -1,4 +1,6 @@
 class OrganizationUsersController < ApplicationController
+  before_action :set_organization_user, only: [:new, :update]
+
   def new
     @organization_user = OrganizationUser.new
   end
