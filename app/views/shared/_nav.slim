@@ -1,22 +1,23 @@
-.Nav.Grid
-  .Flex.row.spaceBetween.alignCenter
-    = link_to title="/"
-      .Nav-logo
-        span Nena
+.Nav
+  .Grid
+    .Flex.row.spaceBetween.alignCenter
+      = link_to title="/"
+        .Nav-logo
+          span Nena
 
-    nav.Flex.row.spaceBetween role="navigation"
-      .u-basePushRight
+      nav.Flex.row.spaceBetween role="navigation"
+        .u-basePushRight
 
-      .Nav-link
-        = link_to "New Organization", new_organization_path
-
-      .u-smallPushRight
-
-      - current_user.organizations.each do |org|
         .Nav-link
-          = link_to org.name, org
+          = link_to "New Organization", new_organization_path
 
         .u-smallPushRight
 
-      .Nav-link
-        = link_to "Sign out", signout_path, method: :delete
+        - current_user.organizations.each do |org|
+          .Nav-link
+            = link_to org.name, org
+
+          .u-smallPushRight
+
+        .Nav-link
+          = link_to "Sign out", signout_path, method: :delete
