@@ -1,0 +1,19 @@
+.Nav
+  .Flex.row.spaceBetween.alignCenter
+    = link_to title="/"
+      .Nav-logo
+        span Nena
+
+    nav.Flex.row.spaceBetween role="navigation"
+      .u-basePushRight
+
+      .Nav-link
+        = link_to "New Organization", new_organization_path
+
+      .u-smallPushRight
+
+      - current_user.organizations.each do |org|
+        .Nav-link
+          = link_to org.name, org
+
+        .u-smallPushRight

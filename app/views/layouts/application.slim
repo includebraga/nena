@@ -8,4 +8,5 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    = render partial: 'shared/nav' if current_user
     = yield
