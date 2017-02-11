@@ -1,0 +1,13 @@
+.container
+  h3 Editar Localização
+  .row
+    .col-lg-12.col-md-12
+      = form_for @location, url: location_path, html: { multipart: true } do |f|
+        .form-group
+          = f.label :city
+          = f.text_field :city
+          br
+          = f.label :avatar
+          = f.file_field :avatar
+          br
+          = f.submit "Atualizar", class: "btn btn-primary"

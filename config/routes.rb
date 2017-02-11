@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :projects
     get :users, to: 'organization_users#index'
   end
+
+  resources :locations, only: [:show, :edit, :update]
 end

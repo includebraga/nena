@@ -16,6 +16,7 @@ gem 'hashie', '~> 3.4.0'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'jquery-ui-rails'
+gem 'paperclip', '~> 5.0.0'
 
 group :development, :test do
   gem "pry-byebug"
