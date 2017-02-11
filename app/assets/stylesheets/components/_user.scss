@@ -1,8 +1,18 @@
 $user-profileImg-size: 100px;
 
+.UserPreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .User-profileImg {
   width: $user-profileImg-size;
   height: $user-profileImg-size;
   background-size: cover;
   border-radius: 50%;
+}
+
+.User-name {
+  @include font('tiny');
 }

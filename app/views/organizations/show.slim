@@ -33,7 +33,9 @@
   .u-largePushBottom
   .Heading.huge.u-caribbeanGreen
     | Volunteers
-  hr
-  - @organization.users.each do |user|
-    = link_to user.name, users_path(user)
 
+  .u-largePushBottom
+
+  .Flex.row.alignStart
+    - @organization.users.each do |user|
+      = render partial: 'users/preview', locals: { user: user }
