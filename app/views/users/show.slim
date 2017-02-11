@@ -3,12 +3,12 @@
 
   .User.Grid.five
     .Flex.row.alignCenter
-      .User-profileImg style="background-image:url('#{current_user.image}')"
+      .User-profileImg style="background-image:url('#{User.find(params[:id]).image}')"
       .u-basePushRight
 
       .User-profileData
         .Heading
-          = current_user.name
+          = User.find(params[:id]).name
         .Flex.row
           .Text.tiny.faded
             | 15 projects
