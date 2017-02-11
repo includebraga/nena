@@ -19,6 +19,7 @@ gem 'jquery-ui-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'social-share-button'
 
 group :development, :test do
   gem "pry-byebug"

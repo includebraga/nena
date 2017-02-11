@@ -14,4 +14,5 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.modal.min
+//= require social-share-button
 //= require_tree .
