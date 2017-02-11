@@ -1,1 +1,9 @@
 h1 Hello, world!
+
+div
+  - if current_user
+    p Signed in as #{current_user.name}
+
+    = link_to "Sign out", signout_path, method: :delete
+  - else
+    = link_to "Sign in with Facebook", "/auth/facebook"

@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 20170210224348) do
   create_table "user_project_payments", force: :cascade do |t|
     t.integer  "projects_id"
     t.integer  "users_id"
+    t.integer  "payments_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["payments_id"], name: "index_user_project_payments_on_payments_id"
     t.index ["projects_id"], name: "index_user_project_payments_on_projects_id"
     t.index ["users_id"], name: "index_user_project_payments_on_users_id"
   end
@@ -68,21 +70,10 @@ ActiveRecord::Schema.define(version: 20170210224348) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "provider"
     t.string   "uid"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

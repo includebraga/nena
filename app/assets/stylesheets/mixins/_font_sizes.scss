@@ -1,0 +1,26 @@
+// scss-lint:disable TrailingSemicolon
+$default-font-sizes: (
+  small: (
+    font-size: 18px,
+    line-height: 24px,
+  ),
+  base: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  large: (
+    font-size: 32px,
+    line-height: 42px,
+  ),
+);
+// scss-lint:enable TrailingSemicolon
+
+@mixin font($size: 'base', $font-sizes: $default-font-sizes) {
+  @include font-properties( map-get($font-sizes, $size) );
+}
+
+@mixin font-properties($variant) {
+  @each $rule, $value in $variant {
+    #{$rule}: $value;
+  }
+}
