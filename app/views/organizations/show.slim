@@ -31,6 +31,7 @@
           locals: { name: project.name, description: project.tagline, url: project.avatar.url, color_class: 'caribbeanGreen' }
 
   .u-largePushBottom
+
   .Heading.huge.u-caribbeanGreen
     | Volunteers
 
@@ -39,3 +40,4 @@
   .Flex.row.alignStart
     - @organization.users.each do |user|
       = render partial: 'users/preview', locals: { user: user }
+
