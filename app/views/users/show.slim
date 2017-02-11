@@ -21,9 +21,9 @@
 
           .Text.tiny.faded
             br
-            | #{@user.payments.where(type: 'Share').map { |p| p.quantity}.sum } shares
+            | #{@user.payments.where(type: 'Share').map { |p| p.quantity}.sum.to_i } shares
             br
-            | #{@user.payments.where(type: 'Other').map { |p| p.quantity}.sum } material donations
+            | #{@user.payments.where(type: 'Other').map { |p| p.quantity}.sum.to_i } material donations
 
 .Grid
   .u-largePushBottom
