@@ -31,9 +31,12 @@
           locals: { name: project.name, description: project.tagline, url: project.avatar.url, color_class: 'caribbeanGreen' }
 
   .u-largePushBottom
+
   .Heading.huge.u-caribbeanGreen
     | Volunteers
-  hr
+
+  .u-largePushBottom
+
   - @organization.users.each do |user|
     = link_to user.name, users_path(user)
 
