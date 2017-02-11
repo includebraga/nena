@@ -1,25 +1,30 @@
-.container
-  .col-md-12
-    = @project.name
-    br
-    small
-      = link_to @project.organization.name, organization_path(@project.organization)
-    hr
-    = image_tag @project.avatar.url, class: 'img-responsive'
-    br
-    p.small
-      = @project.description
-    hr
-    h3 Contribuir
-    button.btn.col-md-3
-      Share
-    button.btn.col-md-3
-      Pagar
-    button.btn.col-md-3
-      Dedicar Tempo
-    button.btn.col-md-3
-      Doar bem material
-    hr
-    h3 Voluntários
+.Header style="background-image: url(#{@project.avatar.url});"
+  .User.Grid
+    .Flex.row.alignCenter.u-tiffanyBlue
+      .User-profileData
+        .Heading
+          .GridImg
+          = @project.name
+        .Flex.row
+          .Text.tiny.faded
+            = link_to @project.organization.name,
+              organization_path(@project.organization)
+        .Flex.row
+          .Text.tiny.faded
+            = @project.location.city
+
+.Grid
+
+  .u-largePushBottom
+  .Text.tiny
+    = @project.description
+
+  .u-largePushBottom
+  .Heading.huge.u-tiffanyBlue
+    | Voluntários
     - @project.users.each do |user|
-      = link_to user_path(user)
+      = link_to user.name, users_path(user)
+//
+// .Flex.row.wrap
+//   - @projects.each do |project|
+//     = render partial: 'shared/grid_img', locals: {name: project.name, description: project.tagline, url: project.avatar.url}
