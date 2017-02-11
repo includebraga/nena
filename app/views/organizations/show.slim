@@ -1,1 +1,20 @@
-h1 Hello, world!
+.Header
+  .User.Grid.five
+    .Flex.row.alignCenter
+      .User-profileData
+        .Heading
+          = @organization.name
+        .Flex.row
+          .Text.tiny.faded
+            = @organization.description
+
+.Grid
+  .u-largePushBottom
+
+  .Heading.huge.gimblet
+    | Featured initiaves
+
+.Flex.row.wrap
+  - 17.times do
+    = render partial: 'shared/grid_img'
+
