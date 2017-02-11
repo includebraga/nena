@@ -62,6 +62,10 @@
     .u-smallPushRight
     = f.text_field :quantity
 
+    br
+
+    = label_tag 'Share instead'
+    .u-smallPushRight
     = social_share_button_tag(@project.name)
 
     = f.hidden_field :project_id, value: @project.id

@@ -12,10 +12,20 @@ class PaymentsController < ApplicationController
     end
   end
 
+  def share
+    @payment = Payment.new(type: "Share", quantity: 1.0, unit: "")
+    if @payment.save
+      UserProjectPayment.create(user_id: current_user.id, project_id: params[:project_id], payment_id: @payment.reload.id)
+
+      flash[:notice] = "Share successful."
+      redirect_to "/organizations/#{@payment.project.organization_id}/projects/#{@payment.project.id}"
+    end
+  end
+
   private
 
   def payment_base_params
-    params.require(:payment).permit(:type, :quantity, :unity)
+    params.require(:payment).permit(:type, :quantity, :unit)
   end
 
   def payment_params

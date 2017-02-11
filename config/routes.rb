@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :locations, only: [:show, :edit, :update]
 
   resources :payments, only: [:create]
+  post '/share', to: 'payments#share'
 end

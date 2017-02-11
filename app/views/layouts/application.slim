@@ -7,6 +7,6 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
+  body data-id="#{@project.id if @project}"
     = render partial: 'shared/nav' if current_user
     = yield
