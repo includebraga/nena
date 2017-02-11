@@ -6,7 +6,7 @@
 
       .User-profileData
         .Heading
-          = link_to current_user.name, user_path(current_user)
+          = current_user.name
         .Flex.row
           .Text.tiny.faded
             | 15 projects
@@ -23,19 +23,12 @@
             br
             | 2 material donations
 
-.SearchBar
-  .SearchBar-indicator ▼
-  .SearchBar-container
-    = text_field_tag "location", nil, placeholder: "Find a nearby city"
-
 .Grid
   .u-largePushBottom
 
-  .Heading.huge.gimblet
-    | Upcoming initiatives
 
 .Flex.row.wrap
-  - @projects.each do |project|
+  - @user_projects.each do |project|
     = render partial: 'shared/grid_img', locals: {name: project.name, description: project.description, url: project.avatar.url}
 
 = link_to "Sign out", signout_path, method: :delete
