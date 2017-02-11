@@ -1,0 +1,22 @@
+.CardText {
+  display: inline;
+  padding: 0 5px;
+}
+
+.CardText-title,
+.CardText-content {
+  display: block;
+  position: absolute;
+  left: 20px;
+  color: $color-white;
+  background-color: $color-gimblet;
+}
+
+.CardText-title {
+  top: 230px;
+}
+
+.CardText-content {
+  font-family: $font-family-serif;
+  top: 266px;
+}
