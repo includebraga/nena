@@ -28,7 +28,7 @@
     - @projects.each do |project|
       = link_to organization_project_path(@organization, project)
         = render partial: 'shared/grid_img',
-          locals: { name: project.name, description: project.tagline, url: project.avatar.url, color_class: 'caribbeanGreen' }
+          locals: { name: project.name, description: "", url: project.avatar.url, color_class: 'caribbeanGreen' }
 
   .u-largePushBottom
 

@@ -40,4 +40,4 @@
   - @projects.each do |project|
     = link_to organization_project_path(project.organization, project)
       = render partial: 'shared/grid_img',
-        locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
+        locals: { name: project.name, description: project.organization.name, url: project.avatar.url, color_class: '' }
