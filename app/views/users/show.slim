@@ -3,12 +3,12 @@
 
   .User.Grid.five
     .Flex.row.alignCenter
-      .User-profileImg style="background-image:url('#{current_user.image}')"
+      .User-profileImg style="background-image:url('#{@user.image}')"
       .u-basePushRight
 
       .User-profileData
         .Heading
-          = current_user.name
+          = @user.name
         .Flex.row
           .Text.tiny.faded
             | #{@user.projects.count} projects
