@@ -1,7 +1,7 @@
 .Header
   .User.Grid.five
     .Flex.row.alignCenter
-      .User-profileImg style="background-image:url('https://avatars0.githubusercontent.com/u/4325027?v=3&s=460')"
+      .User-profileImg style="background-image:url('#{current_user.image}')"
 
       .u-basePushRight
 
@@ -26,6 +26,12 @@
 
 .SearchBar
   = text_field_tag "location", nil, placeholder: "Find a nearby city"
+
+.Grid
+  .u-largePushBottom
+
+  .Heading.huge.gimblet
+    | Projects nearby
 
 .Flex.row.wrap
   - 17.times do
