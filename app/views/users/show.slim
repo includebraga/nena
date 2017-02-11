@@ -28,7 +28,6 @@
 .Grid
   .u-largePushBottom
 
-
-.Flex.row.wrap
-  - @user.projects.each do |project|
-    = render partial: 'shared/grid_img', locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
+  .Flex.row.wrap
+    - @user.projects.each do |project|
+      = render partial: 'shared/grid_img', locals: { name: project.name, description: project.description, url: project.avatar.url, color_class: '' }
