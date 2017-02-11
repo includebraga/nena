@@ -1,21 +1,24 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:update]
+  before_action :set_project, only: [:edit, :update]
+  before_action :set_organization, only: [:new, :create]
   def index
     @projects = Organization.find(params[:organization_id]).projects
   end
 
   def edit; end
 
+  def show; end
+
   def new
     @project = Project.new
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = @organization.projects.create(project_params)
     if @project.save
-      redirect_to @project
+      redirect_to organization_projects_path(@organization)
     else
-      flash[:alert] = "Project not saved"
+      flash.now[:danger] = "Failed create Project"
       render "new"
     end
   end
@@ -35,7 +38,11 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :address)
+    params.require(:project).permit(:name, :description, :initial_date, :final_date, :organization_id)
+  end
+
+  def set_organization
+    @organization = Organization.find(params[:organization_id])
   end
 
   def set_project

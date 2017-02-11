@@ -18,7 +18,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      OrganizationUser.create(user_id: current_user, organization_id: @organization, admin: true)
+      OrganizationUser.create(user_id: current_user.id, organization_id: @organization.id, admin: true)
       redirect_to @organization
     else
       flash[:alert] = "Organization not saved"
