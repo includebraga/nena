@@ -28,7 +28,7 @@
 
 
 .Flex.row.wrap
-  - @user_projects.each do |project|
+  - @user.projects.each do |project|
     = render partial: 'shared/grid_img', locals: {name: project.name, description: project.description, url: project.avatar.url}
 
 = link_to "Sign out", signout_path, method: :delete
