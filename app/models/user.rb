@@ -8,10 +8,11 @@ class User < ApplicationRecord
   validates :email, :name, presence: true
 
   def self.create_with_omniauth(auth)
-    user = find_or_create_by(uid: auth['uid'], provider:  auth['provider'])
+    user = find_or_create_by(uid: auth['uid'], provider: auth['provider'])
     user.email = "#{auth['uid']}@#{auth['provider']}.com"
     user.name = auth['info']['name']
-    
+    user.img  = auth['info']['image']
+    debugger
     if User.exists?(user)
       user
     else
