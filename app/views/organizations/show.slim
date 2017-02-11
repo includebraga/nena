@@ -3,6 +3,7 @@
     .Flex.row.alignCenter
       .User-profileData
         .Heading
+          .GridImg style="background-image: url(#{@organization.avatar})"
           = @organization.name
         .Flex.row
           .Text.tiny.faded
@@ -15,6 +16,5 @@
     | Featured initiaves
 
 .Flex.row.wrap
-  - 17.times do
-    = render partial: 'shared/grid_img'
-
+  - @projects.each do |project|
+    = render partial: 'shared/grid_img', locals: {name: project.name, description: project.tagline, url: project.avatar.url}

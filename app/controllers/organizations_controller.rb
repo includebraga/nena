@@ -9,6 +9,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    @projects = @organization.projects
   end
 
   def new
