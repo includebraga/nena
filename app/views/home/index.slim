@@ -37,6 +37,6 @@
 
 .Flex.row.wrap
   - 17.times do
-    = render partial: 'shared/grid_img'
+    = render partial: 'shared/grid_img', locals: {name: "test", description: "asd", url: nil}
 
 = link_to "Sign out", signout_path, method: :delete
