@@ -32,5 +32,6 @@
       | There are still no volunteers in this project.
 
   - else
-    - @organization.users.each do |user|
-      = render partial: 'users/preview', locals: {user: user}
+    .Flex.row.alignStart.wrap.spaceBetween
+      - @organization.users.each do |user|
+        = render partial: 'users/preview', locals: {user: user}
