@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project_params[:location_id] = Location.find_by(city: project_params[:location_name])
+    project_params[:location_id] = Location.find_by(city: project_params[:location_name]).id
     @project = @organization.projects.create(project_params)
 
     if @project.save
