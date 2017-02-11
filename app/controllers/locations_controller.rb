@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @projects = Project.where(location_id: @location.id)
   end
 
   def update

@@ -2,7 +2,13 @@
   h1
     = @location.city
   - if @location.avatar
-    = image_tag @location.avatar.url
+    = image_tag @location.avatar.url, style: 'width: 100px;'
   hr
+
   h3 Projetos
-    p Mostrar projetos para a dada localização
+  - if @projects.empty?
+    p
+      | Infelizmente, atualmente não existe nenhum projecto para esta localização.
+  - else
+    - @projects.each do |project|
+      = link_to project
