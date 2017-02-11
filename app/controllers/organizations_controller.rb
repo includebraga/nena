@@ -1,14 +1,14 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:edit, :show]
+  before_action :set_organization, only: [:edit, :update, :show]
 
   def index
     @organizations = Organization.all
   end
 
-  def show
+  def edit
   end
 
-  def edit
+  def show
   end
 
   def new
@@ -18,6 +18,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
+      OrganizationUser.create(user_id: current_user, organization_id: @organization, admin: true)
       redirect_to @organization
     else
       flash[:alert] = "Organization not saved"
@@ -26,9 +27,8 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    if @organization.update_attributes(organization_params)
-      redirect_to @organization
-    end
+    @organization.update_attributes(organization_params)
+    redirect_to @organization
   end
 
   def destroy

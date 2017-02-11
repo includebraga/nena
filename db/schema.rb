@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211030950) do
+ActiveRecord::Schema.define(version: 20170211040933) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "country"
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20170211030950) do
 
   create_table "organization_users", force: :cascade do |t|
     t.boolean  "admin"
-    t.integer  "organizations_id"
-    t.integer  "users_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["organizations_id"], name: "index_organization_users_on_organizations_id"
-    t.index ["users_id"], name: "index_organization_users_on_users_id"
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_organization_users_on_organization_id"
+    t.index ["user_id"], name: "index_organization_users_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
