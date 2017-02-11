@@ -1,0 +1,10 @@
+$img-max-size: 264px;
+
+.Img {
+  max-width: $img-max-size;
+  max-height: $img-max-size;
+}
+
+.Img.full {
+  max-width: 100%;
+}

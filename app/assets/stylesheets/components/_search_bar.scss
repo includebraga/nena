@@ -1,0 +1,14 @@
+.SearchBar {
+  input[type="text"] {
+    @include font($size: 'small');
+    width: 100%;
+    text-align: center;
+    border: none;
+    padding: 2px;
+    box-sizing: border-box;
+    height: 24px;
+    -webkit-appearance: none;
+    outline-offset: 0;
+    outline: none;
+  }
+}

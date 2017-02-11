@@ -1,0 +1,8 @@
+$user-profileImg-size: 100px;
+
+.User-profileImg {
+  width: $user-profileImg-size;
+  height: $user-profileImg-size;
+  background-size: cover;
+  border-radius: 50%;
+}

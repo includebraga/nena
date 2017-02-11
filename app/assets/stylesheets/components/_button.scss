@@ -6,7 +6,7 @@ $button-padding: 12px 36px;
 
   padding: $button-padding;
 
-  background-color: $color-coral;
+  background-color: $color-gimblet;
   border: 0;
   border-radius: $button-border-radius;
 
@@ -17,26 +17,17 @@ $button-padding: 12px 36px;
   transition: all 0.2s ease-in-out 0s;
 
   &:hover {
-    background-color: lighten($color-coral, 3);
+    background-color: lighten($color-gimblet, 3);
     cursor: pointer;
   }
 }
 
 .Button.alternative {
   background-color: $color-white;
-  color: $color-coral;
+  color: $color-gimblet;
 
   &:hover {
     background-color: darken($color-white, 3);
-    cursor: pointer;
-  }
-}
-.Button.blue {
-  background-color: $color-dark-sky-blue;
-  color: $color-white;
-
-  &:hover {
-    background-color: darken($color-dark-sky-blue, 3);
     cursor: pointer;
   }
 }

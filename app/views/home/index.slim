@@ -1,3 +1,34 @@
-p Signed in as #{current_user.name}
+.Header
+  .User.Grid.five
+    .Flex.row.alignCenter
+      .User-profileImg style="background-image:url('https://avatars0.githubusercontent.com/u/4325027?v=3&s=460')"
+
+      .u-basePushRight
+
+      .User-profileData
+        .Heading
+          = current_user.name
+        .Flex.row
+          .Text.tiny.faded
+            | 15 projects
+            br
+            | €200
+            br
+            | 15 hours
+
+          .u-basePushRight
+
+          .Text.tiny.faded
+            br
+            | 12 shares
+            br
+            | 2 material donations
+
+.SearchBar
+  = text_field_tag "location", nil, placeholder: "Find a nearby city"
+
+.Flex.row.wrap
+  - 17.times do
+    = render partial: 'shared/grid_img'
 
 = link_to "Sign out", signout_path, method: :delete

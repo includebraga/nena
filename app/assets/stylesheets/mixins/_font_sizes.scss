@@ -1,5 +1,9 @@
 // scss-lint:disable TrailingSemicolon
 $default-font-sizes: (
+  tiny: (
+    font-size: 14px,
+    line-height: 24px,
+  ),
   small: (
     font-size: 18px,
     line-height: 24px,

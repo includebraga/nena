@@ -1,0 +1,22 @@
+.OverlayText {
+  display: inline;
+  padding: 0 5px;
+}
+
+.OverlayText-title,
+.OverlayText-content {
+  display: block;
+  position: absolute;
+  left: 20px;
+  color: $color-white;
+  background-color: $color-gimblet;
+}
+
+.OverlayText-title {
+  top: 230px;
+}
+
+.OverlayText-content {
+  font-family: $font-family-serif;
+  top: 266px;
+}
