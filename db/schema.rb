@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211085257) do
+ActiveRecord::Schema.define(version: 20170211105829) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "city"
@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 20170211085257) do
     t.integer  "organization_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.datetime "initial_date"
-    t.datetime "final_date"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "initial_date"
+    t.datetime "final_date"
     t.integer  "location_id"
     t.string   "tagline"
     t.index ["location_id"], name: "index_projects_on_location_id"
@@ -71,14 +71,12 @@ ActiveRecord::Schema.define(version: 20170211085257) do
   end
 
   create_table "user_project_payments", force: :cascade do |t|
-    t.integer  "projects_id"
-    t.integer  "users_id"
-    t.integer  "payments_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["payments_id"], name: "index_user_project_payments_on_payments_id"
-    t.index ["projects_id"], name: "index_user_project_payments_on_projects_id"
-    t.index ["users_id"], name: "index_user_project_payments_on_users_id"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_user_project_payments_on_project_id"
+    t.index ["user_id"], name: "index_user_project_payments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

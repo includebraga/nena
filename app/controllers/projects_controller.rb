@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :update]
-  before_action :set_organization, only: [:new, :create]
+  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_organization, only: [:index, :new, :create]
+
   def index
     @projects = Organization.find(params[:organization_id]).projects
   end
@@ -14,7 +15,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    project_params[:location] = Location.find_by(city: project_params[:location])
     @project = @organization.projects.create(project_params)
+
     if @project.save
       redirect_to organization_projects_path(@organization)
     else
@@ -38,7 +41,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :initial_date, :final_date, :organization_id, :avatar)
+    params.require(:project).permit(:id, :name, :description, :initial_date, :final_date, :organization_id, :avatar, :location_name, :location, :location_id)
   end
 
   def set_organization

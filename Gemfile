@@ -17,6 +17,8 @@ gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'jquery-ui-rails'
 gem 'paperclip', '~> 5.0.0'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem "pry-byebug"
