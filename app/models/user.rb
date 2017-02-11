@@ -11,8 +11,7 @@ class User < ApplicationRecord
     user = find_or_create_by(uid: auth['uid'], provider: auth['provider'])
     user.email = "#{auth['uid']}@#{auth['provider']}.com"
     user.name = auth['info']['name']
-    user.img  = auth['info']['image']
-    debugger
+    user.image  = auth['info']['image']
     if User.exists?(user)
       user
     else
