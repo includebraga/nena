@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [:new, :update]
   def index
     @projects = Organization.find(params[:organization_id]).projects
   end

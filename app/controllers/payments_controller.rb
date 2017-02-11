@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_action :set_payment, only: [:new, :update]
   def index
     @payments = Project.find(params[:project_id]).payments
   end
