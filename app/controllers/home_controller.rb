@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    render 'unauthenticated' if current_user.nil?
+    if current_user
+      @projects = Project.where(location: current_user.location)
+    else
+      render 'unauthenticated'
+    end
   end
 end

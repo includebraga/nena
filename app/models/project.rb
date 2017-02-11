@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   has_many :user_project_payments
   has_many :users, through: :user_project_payments
   has_many :payments, through: :user_project_payments
-  has_one :location
+  belongs_to :location
   has_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
