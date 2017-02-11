@@ -1,6 +1,11 @@
 class OrganizationUsersController < ApplicationController
   before_action :set_organization_user, only: [:new, :update]
 
+  def index
+    @organization = Organization.find(organization_user_params[:organization_id])
+    @users = @organization.users
+  end
+
   def new
     @organization_user = OrganizationUser.new
   end
