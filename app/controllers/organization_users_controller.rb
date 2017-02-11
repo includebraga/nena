@@ -1,5 +1,7 @@
 class OrganizationUsersController < ApplicationController
-  before_action :set_organization_user, only: [:new, :update]
+  before_action :set_organization_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:new, :create]
+  before_action :set_organization, only: [:new, :create]
 
   def new
     @organization_user = OrganizationUser.new
@@ -28,5 +30,13 @@ class OrganizationUsersController < ApplicationController
 
   def set_organization_user
     @organization_user = OrganizationUser.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_organization
+    @organization = Organization.find(params[:organization_id])
   end
 end

@@ -1,9 +1,4 @@
-.container
-  h1 style=("text-align: center")  New Project
-  .row
-    .col-lg-8
-       = form_for([@organization, @project]) do  |f|
-        .form-group
+= form_for :project, url: organization_project_path(@project), method: :patch do |f|
           = f.label :name 
           br
           = f.text_field :name, class: "form-control",  placeholder: "Enter Name"
@@ -19,10 +14,5 @@
           = f.label :final_date
           br
           = f.text_field :final_date, class: "form-control",  placeholder: "Enter Final Date"
-          br
-          = f.label :location
-          = f.text_field :location_name,
-            data: { autocomplete_source: Location.order(:city).map(&:city) }
-
           br
           = f.submit "ok", class: "btn btn-primary"
